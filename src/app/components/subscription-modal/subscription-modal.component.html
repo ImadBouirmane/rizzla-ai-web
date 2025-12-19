@@ -1,0 +1,42 @@
+@if (isOpen) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-button" (click)="closeModal()" aria-label="Close">
+        <i class="bx bx-x"></i>
+      </button>
+      <div class="modal-body">
+        <i class="bx bx-mobile modal-icon"></i>
+        <h2 class="modal-title">Subscribe to {{ planName }}</h2>
+        <p class="modal-price">{{ planPrice }}</p>
+        
+        @if (isIOS || isAndroid) {
+          <p class="modal-text">
+            To subscribe to {{ planName }}, please download our mobile app from the {{ isIOS ? 'App Store' : 'Play Store' }}.
+          </p>
+          <button class="btn-primary" (click)="redirectToStore()">
+            Open {{ isIOS ? 'App Store' : 'Play Store' }}
+          </button>
+        } @else {
+          <p class="modal-text">
+            Mobile app subscriptions are available now! Web payment integration is coming soon.
+          </p>
+          <div class="store-buttons">
+            <a href="#" (click)="$event.preventDefault(); openUrl('https://apps.apple.com/app/rizzla-ai')" class="store-link">
+              <img src="/appstore_badge.svg" alt="Download on the App Store" />
+            </a>
+            <a href="#" (click)="$event.preventDefault(); openUrl('https://play.google.com/store/apps/details?id=com.rizzlaai.app')" class="store-link">
+              <img src="/playstore_badge.svg" alt="Get it on Google Play" />
+            </a>
+          </div>
+        }
+        
+        <p class="modal-note">
+          <i class="bx bx-info-circle"></i>
+          Web payment integration coming soon!
+        </p>
+        
+        <button class="btn-secondary" (click)="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+}

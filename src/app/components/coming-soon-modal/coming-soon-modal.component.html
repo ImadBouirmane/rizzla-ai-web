@@ -1,0 +1,23 @@
+@if (isOpen) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-button" (click)="closeModal()" aria-label="Close">
+        <i class="bx bx-x"></i>
+      </button>
+      <div class="modal-body">
+        <i class="bx bx-time-five modal-icon"></i>
+        <h2 class="modal-title">Coming Soon!</h2>
+        <p class="modal-text">
+          @if (storeName === 'X' || storeName === 'Facebook' || storeName === 'Instagram') {
+            Our {{ storeName }} page is coming soon! 
+            Follow us for updates and exclusive content.
+          } @else {
+            The Rizzla AI app will be available on {{ storeName }} very soon. 
+            Stay tuned for updates!
+          }
+        </p>
+        <button class="btn-primary" (click)="closeModal()">Got it</button>
+      </div>
+    </div>
+  </div>
+}

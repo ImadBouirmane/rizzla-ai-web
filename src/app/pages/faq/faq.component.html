@@ -1,0 +1,28 @@
+<app-header></app-header>
+<section class="faq-page">
+  <div class="container">
+    <div class="page-header animate-fade-in-up">
+      <h1 class="page-title">Frequently Asked Questions</h1>
+      <p class="page-subtitle">Find answers to common questions about Rizzla AI</p>
+    </div>
+    
+    <div class="faq-list">
+      @for (faq of faqs; track faq.question; let i = $index) {
+        <div class="faq-item glass animate-fade-in-up" [style.animation-delay]="i * 0.1 + 's'">
+          <div class="faq-question" (click)="toggleFaq(i)">
+            <h3>{{ faq.question }}</h3>
+            <i class="bx" [class.bx-chevron-down]="openIndex !== i" [class.bx-chevron-up]="openIndex === i"></i>
+          </div>
+          <div class="faq-answer" [class.open]="openIndex === i">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div class="faq-footer animate-fade-in">
+      <p>Still have questions? <a href="/contact">Contact us</a> and we'll be happy to help!</p>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

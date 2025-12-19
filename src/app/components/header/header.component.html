@@ -1,0 +1,22 @@
+<header class="header glass">
+  <div class="container">
+    <nav class="nav">
+      <a routerLink="/" class="logo">
+        <img src="/logo.jpeg" alt="Rizzla AI" class="logo-img" />
+        <span class="logo-text">Rizzla <span class="logo-ai">AI</span></span>
+      </a>
+      
+      <div class="nav-links" [class.active]="isMenuOpen">
+        <a routerLink="/" (click)="closeMenu()">Home</a>
+        <a routerLink="/" fragment="features" (click)="closeMenu()">Features</a>
+        <a routerLink="/" fragment="pricing" (click)="closeMenu()">Subscriptions</a>
+        <a routerLink="/faq" (click)="closeMenu()">FAQ</a>
+        <a routerLink="/" class="btn-primary" (click)="closeMenu()">Get Started</a>
+      </div>
+      
+      <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+        <i class="bx" [class.bx-menu]="!isMenuOpen" [class.bx-x]="isMenuOpen"></i>
+      </button>
+    </nav>
+  </div>
+</header>

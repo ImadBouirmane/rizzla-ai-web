@@ -1,0 +1,43 @@
+.store-badges {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.store-badge {
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.store-badge img {
+  height: 60px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 201, 254, 0.3));
+}
+
+.store-badge:hover {
+  transform: translateY(-6px);
+  filter: drop-shadow(0 8px 16px rgba(0, 201, 254, 0.5));
+}
+
+.store-badge:hover img {
+  filter: drop-shadow(0 8px 16px rgba(0, 201, 254, 0.5));
+}
+
+@media (max-width: 768px) {
+  .store-badges {
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+  }
+  
+  .store-badge img {
+    height: 50px;
+  }
+}

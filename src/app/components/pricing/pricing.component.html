@@ -1,0 +1,53 @@
+<section id="pricing" class="pricing">
+  <div class="container">
+    <div class="section-header animate-fade-in-up">
+      <h2 class="section-title">Subscriptions</h2>
+      <p class="section-subtitle">
+        Unlock premium features to deepen your emotional connection
+      </p>
+    </div>
+    
+    <div class="pricing-grid">
+      @for (plan of plans; track plan.name; let i = $index) {
+        <div class="pricing-card glass hover-lift" [class.popular]="plan.popular" [class.animate-glow]="plan.popular" [style.animation-delay]="i * 0.15 + 's'">
+          @if (plan.popular) {
+            <div class="popular-badge">Most Popular</div>
+          }
+          
+          <div class="plan-header">
+            <h3 class="plan-name">{{ plan.name }}</h3>
+            <div class="plan-price">
+              <span class="price">{{ plan.price }}</span>
+              <span class="period">{{ plan.period }}</span>
+            </div>
+            <p class="plan-description">{{ plan.description }}</p>
+          </div>
+          
+          <ul class="plan-features">
+            @for (feature of plan.features; track feature) {
+              <li>
+                <i class="bx bx-check check-icon"></i>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+          
+          <button type="button" class="btn-plan" [class.btn-primary]="plan.popular" [class.btn-secondary]="!plan.popular" (click)="openSubscriptionModal(plan)">
+            {{ plan.cta }}
+          </button>
+        </div>
+      }
+    </div>
+    
+    <div class="pricing-note animate-fade-in">
+      <p>All plans include a 7-day free trial. Cancel anytime.</p>
+    </div>
+  </div>
+</section>
+
+<app-subscription-modal 
+  [isOpen]="isModalOpen" 
+  [planName]="selectedPlan.name"
+  [planPrice]="selectedPlan.price"
+  (close)="closeModal()">
+</app-subscription-modal>

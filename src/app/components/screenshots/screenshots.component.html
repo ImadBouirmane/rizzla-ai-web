@@ -1,0 +1,31 @@
+<section id="screenshots" class="screenshots">
+  <div class="container">
+    <div class="section-header animate-fade-in-up">
+      <h2 class="section-title">See Rizzla AI in Action</h2>
+      <p class="section-subtitle">
+        Experience the power of emotional intelligence coaching on mobile
+      </p>
+    </div>
+    
+    <div class="screenshots-grid">
+      @for (screenshot of screenshots; track screenshot.id || screenshot.title) {
+        <div class="screenshot-card glass animate-fade-in-up">
+          <div class="screenshot-image">
+            @if (screenshot.imageUrl) {
+              <img [src]="screenshot.imageUrl" [alt]="screenshot.title" />
+            } @else {
+              <div class="screenshot-placeholder">
+                <span class="placeholder-text">Mobile Screenshot</span>
+                <span class="placeholder-subtext">{{ screenshot.title }}</span>
+              </div>
+            }
+          </div>
+          <div class="screenshot-content">
+            <h3 class="screenshot-title">{{ screenshot.title }}</h3>
+            <p class="screenshot-description">{{ screenshot.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

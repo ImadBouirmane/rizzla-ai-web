@@ -1,0 +1,14 @@
+<div class="store-badges">
+  <a href="#" (click)="$event.preventDefault(); openModal('App Store')" class="store-badge hover-lift">
+    <img src="/appstore_badge.svg" alt="Download on the App Store" />
+  </a>
+  <a href="#" (click)="$event.preventDefault(); openModal('Google Play')" class="store-badge hover-lift">
+    <img src="/playstore_badge.svg" alt="Get it on Google Play" />
+  </a>
+</div>
+
+<app-coming-soon-modal 
+  [isOpen]="isModalOpen" 
+  [storeName]="selectedStore"
+  (close)="closeModal()">
+</app-coming-soon-modal>
